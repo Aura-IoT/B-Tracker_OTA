@@ -1,0 +1,163 @@
+ (routes 
+  (resolution mm 100000)
+  (parser
+  )
+  (parser
+  )
+  (structure_out
+   (layer TOP (type signal)
+   )
+   (layer I1 (type signal)
+   )
+   (layer I2 (type signal)
+   )
+   (layer I3 (type signal)
+   )
+   (layer I4 (type signal)
+   )
+   (layer I5 (type signal)
+   )
+   (layer I6 (type signal)
+   )
+   (layer I7 (type signal)
+   )
+   (layer I8 (type signal)
+   )
+   (layer I9 (type signal)
+   )
+   (layer I10 (type signal)
+   )
+   (layer I11 (type signal)
+   )
+   (layer I12 (type signal)
+   )
+   (layer I13 (type signal)
+   )
+   (layer I14 (type signal)
+   )
+   (layer BOT (type signal)
+   )
+  )
+  (library_out
+  (padstack $VIA#0_SIGNAL
+   (shape (circ TOP 76200 0 0))
+   (shape (circ I1 76200 0 0))
+   (shape (circ I2 76200 0 0))
+   (shape (circ I3 76200 0 0))
+   (shape (circ I4 76200 0 0))
+   (shape (circ I5 76200 0 0))
+   (shape (circ I6 76200 0 0))
+   (shape (circ I7 76200 0 0))
+   (shape (circ I8 76200 0 0))
+   (shape (circ I9 76200 0 0))
+   (shape (circ I10 76200 0 0))
+   (shape (circ I11 76200 0 0))
+   (shape (circ I12 76200 0 0))
+   (shape (circ I13 76200 0 0))
+   (shape (circ I14 76200 0 0))
+   (shape (circ BOT 76200 0 0))
+  )
+  (padstack $VIA#0_POWER
+   (shape (circ TOP 76200 0 0))
+   (shape (circ I1 76200 0 0))
+   (shape (circ I2 76200 0 0))
+   (shape (circ I3 76200 0 0))
+   (shape (circ I4 76200 0 0))
+   (shape (circ I5 76200 0 0))
+   (shape (circ I6 76200 0 0))
+   (shape (circ I7 76200 0 0))
+   (shape (circ I8 76200 0 0))
+   (shape (circ I9 76200 0 0))
+   (shape (circ I10 76200 0 0))
+   (shape (circ I11 76200 0 0))
+   (shape (circ I12 76200 0 0))
+   (shape (circ I13 76200 0 0))
+   (shape (circ I14 76200 0 0))
+   (shape (circ BOT 76200 0 0))
+  )
+  )
+  (network_out
+   (Net +3V3 
+   (rule
+   )
+   (wire (path BOT 63500  -10250000 3246000 -8200291 3246000 -8200291 9152000
+     -7686000 9152000)
+    (connect (terminal pin SW420-2) (terminal pin ESP32-29))
+   )
+   (wire (path TOP 63500  -7686000 9152000 -7686000 11108387 -13750000 11108387
+     -13750000 11500000)
+    (connect (terminal pin ESP32-29) (terminal pin BAT-0))
+   )
+   (wire (path BOT 63500  -5000000 6496000 -5250000 6496000 -5250000 8996000)
+    (connect (terminal pin SIM800L-1) (terminal pin GPS-3))
+   )
+   (wire (path TOP 63500  -5250000 8996000 -5588000 8996000 -5588000 9152000
+     -7686000 9152000)
+    (connect (terminal pin GPS-3) (terminal pin ESP32-29))
+   )
+   )
+   (Net DO 
+   (rule
+   )
+   (wire (path BOT 63500  -10250000 3754000 -10414000 3754000 -10414000 8644000
+     -10227000 8644000)
+    (connect (terminal pin SW420-0) (terminal pin ESP32-9))
+   )
+   )
+   (Net GND 
+   (rule
+   )
+   (wire (path BOT 63500  -13496000 11500000 -13496000 9715500 -9842500 9715500)
+    (connect (terminal pin BAT-1) (terminal wire))
+   )
+   (wire (path BOT 63500  -5000000 5480000 -5461000 5480000 -5461000 9715500)
+    (connect (terminal pin SIM800L-5) (terminal wire))
+   )
+   (wire (path BOT 63500  -5461000 9715500 -9842500 9715500)
+    (connect (terminal wire) (terminal wire))
+   )
+   (wire (path BOT 63500  -10250000 3500000 -10668000 3500000 -10668000 8898000
+     -10227000 8898000)
+    (connect (terminal pin SW420-1) (terminal pin ESP32-28))
+   )
+   (wire (path BOT 63500  -9842500 9715500 -9842500 8898000 -10227000 8898000)
+    (connect (terminal wire) (terminal pin ESP32-28))
+   )
+   (wire (path BOT 63500  -5250000 9758000 -5250000 9715500 -5461000 9715500)
+    (connect (terminal pin GPS-0) (terminal wire))
+   )
+   )
+   (Net GPS_RX 
+   (rule
+   )
+   )
+   (Net GPS_TX 
+   (rule
+   )
+   )
+   (Net GSM_RX 
+   (rule
+   )
+   )
+   (Net GSM_TX 
+   (rule
+   )
+   )
+   (Net SIM_RX 
+   (rule
+   )
+   (wire (path TOP 63500  -10227000 6104000 -8642562 6104000 -8642562 5143500
+     -4635500 5143500 -4635500 5988000 -5000000 5988000)
+    (connect (terminal pin ESP32-1) (terminal pin SIM800L-3))
+   )
+   )
+   (Net SIM_TX 
+   (rule
+   )
+   (wire (path TOP 63500  -10227000 6358000 -8054814 6358000 -8054814 5461000
+     -5609163 5461000 -5609163 5734000 -5000000 5734000)
+    (connect (terminal pin ESP32-3) (terminal pin SIM800L-4))
+   )
+   )
+  )
+ )
