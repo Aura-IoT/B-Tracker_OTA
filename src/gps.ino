@@ -21,6 +21,7 @@ void traker(void* nth){
   unsigned long now = millis();
   char dataBuff[] = "{\"started\":\"%s\",\"lat\":%f,\"lng\":%f}";
   double lat = 0.0, lon = 0.0;
+  again:
   while (true){
     while (Serial2.available()) {  
      if( millis()-now>=1000){
@@ -28,10 +29,11 @@ void traker(void* nth){
         int msgType = processGPS();
         if ( msgType == MT_NAV_POSLLH ) {
           lat = ubxMessage.navPosllh.lat/10000000.000000f;
-          lon = ubxMessage.navPosllh.lon/10000000.000000f;  
-          sprintf(dataBuff,"{\"started\":\"%s\",\"lat\":%f,\"lng\":%f}","yes",lat,lon); 
+          lon = ubxMessage.navPosllh.lon/10000000.000000f;
+          if(isnan(lat) || isnan(lon)) goto again;  
+          sprintf(dataBuff,"{\"started\":\"%s\",\"lat\":%f,\"lng\":%f}","yes",lat,lon);
+          mysim.POST(String("https://b-tracker-6a038-default-rtdb.firebaseio.com/locatin.json"), String(dataBuff));
         }
-        mysim.POST(String("https://b-tracker-6a038-default-rtdb.firebaseio.com/locatin.json"), String(dataBuff));
       }
     }
     vTaskDelay(100 / portTICK_PERIOD_MS);
